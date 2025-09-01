@@ -82,37 +82,6 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Contact Form Validation and Submission
-const contactForm = document.getElementById('contactForm');
-
-contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
-
-    // Basic validation
-    if (!name || !email || !message) {
-        alert('Please fill in all fields.');
-        return;
-    }
-
-    if (!isValidEmail(email)) {
-        alert('Please enter a valid email address.');
-        return;
-    }
-
-    // Simulate form submission (replace with actual submission logic)
-    alert('Thank you for your message! I will get back to you soon.');
-    contactForm.reset();
-});
-
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-
 // Intersection Observer for animations
 const observerOptions = {
     threshold: 0.1,
