@@ -371,10 +371,30 @@ footer p {
         top: 70px;
         left: 0;
         width: 100%;
-        background: white;
+        background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
         flex-direction: column;
-        padding: 1rem 0;
+        padding: 2rem 0;
         border-top: 1px solid #e0e0e0;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        border-radius: 0 0 8px 8px;
+    }
+
+    .nav-menu li {
+        margin: 0.5rem 0;
+        padding: 0 1.5rem;
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 12px 20px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        font-size: 1.1rem;
+    }
+
+    .nav-menu a:hover {
+        background: rgba(139, 92, 246, 0.1);
+        transform: translateX(5px);
     }
 
     .nav-menu.active {
