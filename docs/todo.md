@@ -1,11 +1,11 @@
 # Portfolio Website Restructure Plan
 
 ## Phase 1: Hero Section Redesign
-- [ ] Update hero section to full-bleed layout with background image
-- [ ] Add model name and role (Kristina Yachmeneva - Model)
-- [ ] Create compelling 1-line pitch ("Discovering my passion for modeling through beautiful photography")
-- [ ] Add two CTA buttons: "View Gallery" and "Contact"
-- [ ] Implement subtle gradient overlay on background image (gray gradient)
+- [x] Update hero section to full-bleed layout with background image
+- [x] Add model name and role (Kristina Yachmeneva - Model)
+- [x] Create compelling 1-line pitch ("Discovering my passion for modeling through beautiful photography")
+- [x] Add two CTA buttons: "View Gallery" and "Contact"
+- [x] Implement subtle gradient overlay on background image (gray gradient)
 
 ## Phase 2: Stats/Highlights Section
 - [ ] Create new stats section with 3-4 compact badges
