@@ -649,10 +649,9 @@ header {
 }
 
 .contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .contact-info h3 {
@@ -662,11 +661,84 @@ header {
 }
 
 .contact-info p {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     font-size: 1.1rem;
     line-height: 1.8;
 }
 
+/* Contact Methods Styling */
+.contact-item {
+    margin-bottom: 2rem;
+}
+
+.contact-label {
+    display: block;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #808080;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.contact-value {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 12px 16px;
+    background: #f8f9fa;
+    border: 1px solid rgba(44, 44, 44, 0.08);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.contact-value:hover {
+    background: #f1f3f4;
+    border-color: rgba(44, 44, 44, 0.15);
+}
+
+.contact-text {
+    flex: 1;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #2c2c2c;
+    cursor: pointer;
+    user-select: all;
+}
+
+.copy-btn {
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+}
+
+.copy-btn:hover {
+    opacity: 1;
+    background: rgba(44, 44, 44, 0.05);
+}
+
+.copy-btn:active {
+    transform: scale(0.95);
+}
+
+.copy-success {
+    background: #e8f5e8 !important;
+    border-color: #4caf50 !important;
+}
+
+/* Social Links Styling */
 .social-links {
     display: flex;
     gap: 1rem;
@@ -674,68 +746,57 @@ header {
 }
 
 .social-link {
-    display: inline-block;
-    padding: 10px 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 12px 18px;
     background: #606060;
     color: #f5f5f5;
     text-decoration: none;
     border-radius: 25px;
     font-weight: 500;
-    transition: background 0.3s;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
 }
 
 .social-link:hover {
     background: #404040;
+    transform: translateY(-1px);
 }
 
-.contact-form {
-    background: #f0f0f0;
-    padding: 2rem;
-    border-radius: 10px;
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: #2c2c2c;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-family: 'Poppins', sans-serif;
+.social-icon {
     font-size: 1rem;
 }
 
-.form-group textarea {
-    height: 120px;
-    resize: vertical;
+.social-link.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
 }
 
-.submit-btn {
-    width: 100%;
-    padding: 12px;
-    background: #606060;
-    color: #f5f5f5;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.3s;
+.social-link.instagram:hover {
+    background: linear-gradient(45deg, #e6683c 0%, #dc2743 25%, #cc2366 50%, #bc1888 75%, #8b0a6b 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(225, 48, 108, 0.4);
 }
 
-.submit-btn:hover {
-    background: #404040;
+.instagram-icon {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold;
+    font-size: 1.1rem;
 }
+
+.social-link.telegram {
+    background: #0088cc;
+}
+
+.social-link.telegram:hover {
+    background: #006ba6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 136, 204, 0.4);
+}
+
 
 /* Scroll Cue */
 .scroll-cue {
@@ -919,8 +980,36 @@ footer p {
     }
 
     .contact-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+        flex-direction: column;
+    }
+    
+    .contact-item {
+        margin-bottom: 1.5rem;
+    }
+    
+    .contact-value {
+        padding: 10px 12px;
+        gap: 0.75rem;
+    }
+    
+    .contact-text {
+        font-size: 0.9rem;
+    }
+    
+    .copy-btn {
+        width: 24px;
+        height: 24px;
+        font-size: 0.9rem;
+    }
+    
+    .social-links {
+        justify-content: center;
+        gap: 0.75rem;
+    }
+    
+    .social-link {
+        padding: 10px 16px;
+        font-size: 0.8rem;
     }
 
     .stats {

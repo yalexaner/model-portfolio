@@ -206,3 +206,50 @@ if ('IntersectionObserver' in window) {
         imageObserver.observe(img);
     });
 }
+
+// Contact functionality - Tap to copy
+document.addEventListener('DOMContentLoaded', () => {
+    // Copy to clipboard functionality
+    const copyButtons = document.querySelectorAll('.copy-btn');
+    
+    copyButtons.forEach(button => {
+        button.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const contactValue = button.closest('.contact-value');
+            const textToCopy = contactValue.dataset.copy;
+            
+            try {
+                await navigator.clipboard.writeText(textToCopy);
+                
+                // Visual feedback
+                contactValue.classList.add('copy-success');
+                button.textContent = '✓';
+                
+                // Reset after 2 seconds
+                setTimeout(() => {
+                    contactValue.classList.remove('copy-success');
+                    button.textContent = '📋';
+                }, 2000);
+                
+            } catch (err) {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = textToCopy;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                // Visual feedback
+                contactValue.classList.add('copy-success');
+                button.textContent = '✓';
+                
+                setTimeout(() => {
+                    contactValue.classList.remove('copy-success');
+                    button.textContent = '📋';
+                }, 2000);
+            }
+        });
+    });
+    
+});
