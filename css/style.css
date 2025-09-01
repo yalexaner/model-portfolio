@@ -8,8 +8,8 @@
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #fafafa;
+    color: #2c2c2c;
+    background-color: #f5f5f5;
 }
 
 .container {
@@ -42,7 +42,7 @@ header {
 .logo {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #8b5cf6;
+    color: #404040;
 }
 
 .nav-menu {
@@ -53,13 +53,13 @@ header {
 
 .nav-menu a {
     text-decoration: none;
-    color: #333;
+    color: #2c2c2c;
     font-weight: 500;
     transition: color 0.3s;
 }
 
 .nav-menu a:hover {
-    color: #8b5cf6;
+    color: #606060;
 }
 
 .hamburger {
@@ -82,8 +82,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: linear-gradient(135deg, #e0e0e0 0%, #c0c0c0 100%);
+    color: #2c2c2c;
     text-align: center;
 }
 
@@ -102,8 +102,8 @@ header {
 .cta-button {
     display: inline-block;
     padding: 12px 30px;
-    background: #8b5cf6;
-    color: white;
+    background: #606060;
+    color: #f5f5f5;
     text-decoration: none;
     border-radius: 25px;
     font-weight: 500;
@@ -111,20 +111,21 @@ header {
 }
 
 .cta-button:hover {
+    background: #404040;
     transform: translateY(-2px);
 }
 
 /* About Section */
 .about {
     padding: 100px 0;
-    background: white;
+    background: #ffffff;
 }
 
 .about h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
-    color: #333;
+    color: #2c2c2c;
 }
 
 .about-content {
@@ -148,12 +149,12 @@ header {
 
 .stat h3 {
     font-size: 2rem;
-    color: #8b5cf6;
+    color: #404040;
     margin-bottom: 0.5rem;
 }
 
 .stat p {
-    color: #666;
+    color: #808080;
     font-weight: 500;
 }
 
@@ -166,14 +167,14 @@ header {
 /* Gallery Section */
 .gallery {
     padding: 100px 0;
-    background: #f8f9fa;
+    background: #f0f0f0;
 }
 
 .gallery h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
-    color: #333;
+    color: #2c2c2c;
 }
 
 .gallery-grid {
@@ -208,14 +209,14 @@ header {
 /* Contact Section */
 .contact {
     padding: 100px 0;
-    background: white;
+    background: #ffffff;
 }
 
 .contact h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
-    color: #333;
+    color: #2c2c2c;
 }
 
 .contact-content {
@@ -228,7 +229,7 @@ header {
 .contact-info h3 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
-    color: #333;
+    color: #2c2c2c;
 }
 
 .contact-info p {
@@ -246,8 +247,8 @@ header {
 .social-link {
     display: inline-block;
     padding: 10px 20px;
-    background: #8b5cf6;
-    color: white;
+    background: #606060;
+    color: #f5f5f5;
     text-decoration: none;
     border-radius: 25px;
     font-weight: 500;
@@ -255,11 +256,11 @@ header {
 }
 
 .social-link:hover {
-    background: #7c3aed;
+    background: #404040;
 }
 
 .contact-form {
-    background: #f8f9fa;
+    background: #f0f0f0;
     padding: 2rem;
     border-radius: 10px;
 }
@@ -272,7 +273,7 @@ header {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
-    color: #333;
+    color: #2c2c2c;
 }
 
 .form-group input,
@@ -293,8 +294,8 @@ header {
 .submit-btn {
     width: 100%;
     padding: 12px;
-    background: #8b5cf6;
-    color: white;
+    background: #606060;
+    color: #f5f5f5;
     border: none;
     border-radius: 5px;
     font-size: 1rem;
@@ -304,13 +305,13 @@ header {
 }
 
 .submit-btn:hover {
-    background: #7c3aed;
+    background: #404040;
 }
 
 /* Footer */
 footer {
-    background: #333;
-    color: white;
+    background: #404040;
+    color: #f5f5f5;
     text-align: center;
     padding: 2rem 0;
 }
@@ -371,7 +372,7 @@ footer p {
         top: 70px;
         left: 0;
         width: 100%;
-        background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+        background: linear-gradient(135deg, #e0e0e0 0%, #c0c0c0 100%);
         flex-direction: column;
         padding: 2rem 0;
         border-top: 1px solid #e0e0e0;
@@ -393,7 +394,7 @@ footer p {
     }
 
     .nav-menu a:hover {
-        background: rgba(139, 92, 246, 0.1);
+        background: rgba(96, 96, 96, 0.1);
         transform: translateX(5px);
     }
 
