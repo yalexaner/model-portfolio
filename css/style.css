@@ -844,6 +844,17 @@ footer {
 
 footer p {
     opacity: 0.8;
+    margin: 0;
+}
+
+footer p:first-child {
+    margin-bottom: 0.5rem;
+}
+
+.footer-credit {
+    font-size: 0.85rem;
+    opacity: 0.6;
+    font-style: italic;
 }
 
 /* Lightbox */
