@@ -8,12 +8,11 @@
 - [x] Implement subtle gradient overlay on background image (gray gradient)
 
 ## Phase 2: Stats/Highlights Section
-- [ ] Create new stats section with 3-4 compact badges
-- [ ] Add height badge (e.g., "5'6\"")
-- [ ] Add city/location badge
-- [ ] Add agencies represented badge
-- [ ] Add booking status badge (e.g., "Available for Work")
-- [ ] Style badges with gray theme and responsive layout
+- [x] Create new stats section with professional info strip
+- [x] Add age (17), height (173 cm), and weight (54.5 kg) information
+- [x] Add location (Yekaterinburg) and availability status
+- [x] Style with elegant typography and responsive layout
+- [x] Remove emoji-based design for professional appearance
 
 ## Phase 3: Gallery Enhancement
 - [ ] Implement masonry/justified grid layout for gallery
