@@ -363,38 +363,121 @@ header {
 
 .about-content {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 3rem;
-    align-items: center;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+    align-items: start;
 }
 
 .about-text p {
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
     line-height: 1.8;
+    color: #2c2c2c;
 }
 
-.stats {
+.about-text p:last-of-type {
+    margin-bottom: 2.5rem;
+}
+
+/* Measurements Section */
+.measurements-section {
+    margin-bottom: 2.5rem;
+}
+
+.measurements-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+}
+
+.measurements-table {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid rgba(44, 44, 44, 0.08);
+}
+
+.measurement-row {
     display: flex;
-    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(44, 44, 44, 0.05);
+}
+
+.measurement-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.measurement-row:first-child {
+    padding-top: 0;
+}
+
+.measurement-label {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #808080;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.measurement-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c2c2c;
+}
+
+/* Comp Card Section */
+.comp-card-section {
     margin-top: 2rem;
 }
 
-.stat h3 {
-    font-size: 2rem;
-    color: #404040;
-    margin-bottom: 0.5rem;
+.comp-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 1px solid rgba(44, 44, 44, 0.1);
+    border-radius: 8px;
+    text-decoration: none;
+    color: #2c2c2c;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
 }
 
-.stat p {
-    color: #808080;
-    font-weight: 500;
+.comp-card-link:hover {
+    background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.comp-card-icon {
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.about-image {
+    position: sticky;
+    top: 120px;
 }
 
 .about-image img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.02);
 }
 
 /* Gallery Section */
@@ -819,7 +902,20 @@ footer p {
 
     .about-content {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 3rem;
+    }
+    
+    .about-image {
+        position: static;
+        order: -1;
+    }
+    
+    .measurements-table {
+        padding: 1rem;
+    }
+    
+    .measurement-row {
+        padding: 0.5rem 0;
     }
 
     .contact-content {
