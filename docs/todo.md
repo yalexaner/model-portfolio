@@ -15,12 +15,12 @@
 - [x] Remove emoji-based design for professional appearance
 
 ## Phase 3: Gallery Enhancement
-- [ ] Implement masonry/justified grid layout for gallery
-- [ ] Add lazy loading for gallery images
-- [ ] Create category grouping (Editorial, Runway, Beauty)
-- [ ] Add category filter buttons
-- [ ] Ensure lightbox functionality works with new layout
-- [ ] Add image captions and metadata
+- [x] Implement masonry/justified grid layout for gallery
+- [x] Add lazy loading for gallery images
+- [x] Create category grouping (Editorial, Fashion, Beauty)
+- [x] Add category filter buttons with item counts
+- [x] Ensure lightbox functionality works with new layout
+- [x] Add image captions and metadata with hover effects
 
 ## Phase 4: About Section Restructure
 - [ ] Reduce about text to 3-4 concise lines

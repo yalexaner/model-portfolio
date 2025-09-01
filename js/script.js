@@ -29,23 +29,84 @@ const lightboxImg = document.getElementById('lightboxImg');
 const caption = document.getElementById('caption');
 const closeBtn = document.querySelector('.close');
 
-// Sample gallery images (replace with actual images)
+// Gallery images with categories and metadata
 const galleryImages = [
-    { src: 'images/photo1.jpg', alt: 'Fashion Shoot 1' },
-    { src: 'images/photo2.jpg', alt: 'Portrait Session' },
-    { src: 'images/photo3.jpg', alt: 'Outdoor Modeling' },
-    { src: 'images/photo4.jpg', alt: 'Studio Session' },
-    { src: 'images/photo5.jpg', alt: 'Casual Look' },
-    { src: 'images/photo6.jpg', alt: 'Editorial Shoot' }
+    { src: 'images/photo1.jpg', alt: 'Fashion Editorial', category: 'editorial', caption: 'High fashion editorial shoot showcasing elegant styling' },
+    { src: 'images/photo2.jpg', alt: 'Portrait Session', category: 'beauty', caption: 'Professional beauty portrait with natural lighting' },
+    { src: 'images/photo3.jpg', alt: 'Outdoor Fashion', category: 'fashion', caption: 'Outdoor fashion shoot in natural environment' },
+    { src: 'images/photo4.jpg', alt: 'Studio Portrait', category: 'beauty', caption: 'Studio beauty shot with professional lighting' },
+    { src: 'images/photo5.jpg', alt: 'Runway Style', category: 'fashion', caption: 'Fashion shoot inspired by runway trends' },
+    { src: 'images/photo6.jpg', alt: 'Editorial Beauty', category: 'editorial', caption: 'Editorial beauty shot for fashion magazine' }
 ];
 
-// Load gallery images
+// Gallery categories
+const categories = [
+    { id: 'all', name: 'All', count: galleryImages.length },
+    { id: 'editorial', name: 'Editorial', count: galleryImages.filter(img => img.category === 'editorial').length },
+    { id: 'fashion', name: 'Fashion', count: galleryImages.filter(img => img.category === 'fashion').length },
+    { id: 'beauty', name: 'Beauty', count: galleryImages.filter(img => img.category === 'beauty').length }
+];
+
+// Current filter state
+let currentFilter = 'all';
+
+// Load gallery filters
+function loadGalleryFilters() {
+    const filtersContainer = document.querySelector('.gallery-filters');
+    
+    categories.forEach(category => {
+        const filterBtn = document.createElement('button');
+        filterBtn.className = `filter-btn ${category.id === 'all' ? 'active' : ''}`;
+        filterBtn.textContent = `${category.name} (${category.count})`;
+        filterBtn.dataset.filter = category.id;
+        
+        filterBtn.addEventListener('click', () => {
+            // Update active button
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            filterBtn.classList.add('active');
+            
+            // Filter gallery
+            currentFilter = category.id;
+            loadGallery();
+        });
+        
+        filtersContainer.appendChild(filterBtn);
+    });
+}
+
+// Load gallery images with filtering
 function loadGallery() {
-    galleryImages.forEach((image, index) => {
+    galleryGrid.innerHTML = ''; // Clear existing images
+    
+    const filteredImages = currentFilter === 'all' 
+        ? galleryImages 
+        : galleryImages.filter(img => img.category === currentFilter);
+    
+    filteredImages.forEach((image, index) => {
         const galleryItem = document.createElement('div');
         galleryItem.className = 'gallery-item';
-        galleryItem.innerHTML = `<img src="${image.src}" alt="${image.alt}" loading="lazy">`;
-        galleryItem.addEventListener('click', () => openLightbox(index));
+        galleryItem.dataset.category = image.category;
+        
+        // Create image with lazy loading
+        const img = document.createElement('img');
+        img.src = image.src;
+        img.alt = image.alt;
+        img.loading = 'lazy';
+        
+        // Add caption overlay
+        const caption = document.createElement('div');
+        caption.className = 'gallery-caption';
+        caption.innerHTML = `
+            <h4>${image.alt}</h4>
+            <p>${image.caption}</p>
+        `;
+        
+        galleryItem.appendChild(img);
+        galleryItem.appendChild(caption);
+        
+        // Add click handler for lightbox
+        galleryItem.addEventListener('click', () => openLightbox(galleryImages.indexOf(image)));
+        
         galleryGrid.appendChild(galleryItem);
     });
 }
@@ -122,7 +183,10 @@ style.textContent = `
 document.head.appendChild(style);
 
 // Initialize gallery when DOM is loaded
-document.addEventListener('DOMContentLoaded', loadGallery);
+document.addEventListener('DOMContentLoaded', () => {
+    loadGalleryFilters();
+    loadGallery();
+});
 
 // Performance optimization: Lazy load images
 if ('IntersectionObserver' in window) {
