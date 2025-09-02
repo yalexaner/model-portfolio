@@ -31,20 +31,64 @@ const closeBtn = document.querySelector('.close');
 
 // Gallery images with categories and metadata
 const galleryImages = [
-    { src: 'images/photo1.jpg', alt: 'Fashion Editorial', category: 'editorial', caption: 'High fashion editorial shoot showcasing elegant styling' },
-    { src: 'images/photo2.jpg', alt: 'Portrait Session', category: 'beauty', caption: 'Professional beauty portrait with natural lighting' },
-    { src: 'images/photo3.jpg', alt: 'Outdoor Fashion', category: 'fashion', caption: 'Outdoor fashion shoot in natural environment' },
-    { src: 'images/photo4.jpg', alt: 'Studio Portrait', category: 'beauty', caption: 'Studio beauty shot with professional lighting' },
-    { src: 'images/photo5.jpg', alt: 'Runway Style', category: 'fashion', caption: 'Fashion shoot inspired by runway trends' },
-    { src: 'images/photo6.jpg', alt: 'Editorial Beauty', category: 'editorial', caption: 'Editorial beauty shot for fashion magazine' }
+    // Folder 1 - one
+    { src: 'images/1/1.JPG', alt: 'Model Portrait One', category: 'one', caption: 'Professional modeling portrait from first session' },
+    { src: 'images/1/2.JPG', alt: 'Model Portrait Two', category: 'one', caption: 'Creative portrait work showcasing natural beauty' },
+
+    // Folder 2 - two
+    { src: 'images/2/3.JPG', alt: 'Fashion Session One', category: 'two', caption: 'Fashion photography with elegant styling' },
+    { src: 'images/2/4.JPG', alt: 'Fashion Session Two', category: 'two', caption: 'Contemporary fashion shoot in studio setting' },
+    { src: 'images/2/5.JPG', alt: 'Fashion Session Three', category: 'two', caption: 'Dynamic fashion poses with professional lighting' },
+
+    // Folder 3 - three
+    { src: 'images/3/6.JPG', alt: 'Editorial Shoot One', category: 'three', caption: 'Editorial photography with artistic composition' },
+    { src: 'images/3/7.JPG', alt: 'Editorial Shoot Two', category: 'three', caption: 'High-fashion editorial with dramatic lighting' },
+    { src: 'images/3/8.JPG', alt: 'Editorial Shoot Three', category: 'three', caption: 'Creative editorial work for fashion magazine' },
+    { src: 'images/3/9.JPG', alt: 'Editorial Shoot Four', category: 'three', caption: 'Artistic portrait with fashion elements' },
+    { src: 'images/3/10.JPG', alt: 'Editorial Shoot Five', category: 'three', caption: 'Editorial beauty shot with professional styling' },
+
+    // Folder 4 - four
+    { src: 'images/4/11.JPG', alt: 'Studio Session One', category: 'four', caption: 'Studio photography with controlled lighting' },
+    { src: 'images/4/12.JPG', alt: 'Studio Session Two', category: 'four', caption: 'Professional studio portrait work' },
+
+    // Folder 5 - five
+    { src: 'images/5/13.JPG', alt: 'Outdoor Photography One', category: 'five', caption: 'Natural light photography in outdoor setting' },
+    { src: 'images/5/14.JPG', alt: 'Outdoor Photography Two', category: 'five', caption: 'Location shoot with environmental elements' },
+    { src: 'images/5/15.JPG', alt: 'Outdoor Photography Three', category: 'five', caption: 'Outdoor fashion photography with natural backdrop' },
+    { src: 'images/5/16.JPG', alt: 'Outdoor Photography Four', category: 'five', caption: 'Environmental portrait in scenic location' },
+    { src: 'images/5/17.JPG', alt: 'Outdoor Photography Five', category: 'five', caption: 'Natural light beauty photography' },
+    { src: 'images/5/18.JPG', alt: 'Outdoor Photography Six', category: 'five', caption: 'Outdoor session with dynamic composition' },
+
+    // Folder 6 - six
+    { src: 'images/6/19.PNG', alt: 'Creative Session One', category: 'six', caption: 'Creative photography with artistic vision' },
+    { src: 'images/6/20.PNG', alt: 'Creative Session Two', category: 'six', caption: 'Experimental photography techniques' },
+    { src: 'images/6/21.PNG', alt: 'Creative Session Three', category: 'six', caption: 'Artistic portrait with creative lighting' },
+    { src: 'images/6/22.PNG', alt: 'Creative Session Four', category: 'six', caption: 'Innovative fashion photography' },
+    { src: 'images/6/23.JPG', alt: 'Creative Session Five', category: 'six', caption: 'Creative beauty photography' },
+    { src: 'images/6/24.JPG', alt: 'Creative Session Six', category: 'six', caption: 'Artistic composition with model' },
+
+    // Folder 7 - seven
+    { src: 'images/7/25.PNG', alt: 'Portfolio Session One', category: 'seven', caption: 'Professional portfolio photography' },
+    { src: 'images/7/26.PNG', alt: 'Portfolio Session Two', category: 'seven', caption: 'Headshot and portrait work' },
+    { src: 'images/7/27.PNG', alt: 'Portfolio Session Three', category: 'seven', caption: 'Commercial photography for portfolio' },
+    { src: 'images/7/28.PNG', alt: 'Portfolio Session Four', category: 'seven', caption: 'Professional modeling portfolio' },
+    { src: 'images/7/29.JPG', alt: 'Portfolio Session Five', category: 'seven', caption: 'Portfolio beauty shot' },
+    { src: 'images/7/30.JPG', alt: 'Portfolio Session Six', category: 'seven', caption: 'Professional portfolio image' },
+    { src: 'images/7/31.JPG', alt: 'Portfolio Session Seven', category: 'seven', caption: 'Portfolio fashion photography' },
+    { src: 'images/7/32.JPG', alt: 'Portfolio Session Eight', category: 'seven', caption: 'Commercial portfolio work' },
+    { src: 'images/7/33.JPG', alt: 'Portfolio Session Nine', category: 'seven', caption: 'Professional portfolio session' }
 ];
 
 // Gallery categories
 const categories = [
     { id: 'all', name: 'All', count: galleryImages.length },
-    { id: 'editorial', name: 'Editorial', count: galleryImages.filter(img => img.category === 'editorial').length },
-    { id: 'fashion', name: 'Fashion', count: galleryImages.filter(img => img.category === 'fashion').length },
-    { id: 'beauty', name: 'Beauty', count: galleryImages.filter(img => img.category === 'beauty').length }
+    { id: 'one', name: 'One', count: galleryImages.filter(img => img.category === 'one').length },
+    { id: 'two', name: 'Two', count: galleryImages.filter(img => img.category === 'two').length },
+    { id: 'three', name: 'Three', count: galleryImages.filter(img => img.category === 'three').length },
+    { id: 'four', name: 'Four', count: galleryImages.filter(img => img.category === 'four').length },
+    { id: 'five', name: 'Five', count: galleryImages.filter(img => img.category === 'five').length },
+    { id: 'six', name: 'Six', count: galleryImages.filter(img => img.category === 'six').length },
+    { id: 'seven', name: 'Seven', count: galleryImages.filter(img => img.category === 'seven').length }
 ];
 
 // Current filter state
