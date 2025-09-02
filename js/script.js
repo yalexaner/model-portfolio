@@ -71,7 +71,6 @@ document.addEventListener('DOMContentLoaded', updateActiveNavLink);
 const galleryGrid = document.querySelector('.gallery-grid');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightboxImg');
-const caption = document.getElementById('caption');
 const closeBtn = document.querySelector('.close');
 
 // Gallery images with categories and metadata
@@ -182,16 +181,9 @@ function loadGallery() {
         img.alt = image.alt;
         img.loading = 'lazy';
         
-        // Add caption overlay
-        const caption = document.createElement('div');
-        caption.className = 'gallery-caption';
-        caption.innerHTML = `
-            <h4>${image.alt}</h4>
-            <p>${image.caption}</p>
-        `;
+        // Add image only (caption overlay removed)
         
         galleryItem.appendChild(img);
-        galleryItem.appendChild(caption);
         
         // Add click handler for lightbox
         galleryItem.addEventListener('click', () => openLightbox(galleryImages.indexOf(image)));
@@ -204,7 +196,6 @@ function loadGallery() {
 function openLightbox(index) {
     lightbox.style.display = 'block';
     lightboxImg.src = galleryImages[index].src;
-    caption.textContent = galleryImages[index].alt;
     document.body.style.overflow = 'hidden';
 }
 
