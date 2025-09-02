@@ -48,18 +48,45 @@ header {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
-.nav-menu a {
+.nav-link {
     text-decoration: none;
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.95);
     font-weight: 500;
-    transition: color 0.3s;
+    padding: 10px 12px;
+    border-radius: 10px;
+    transition: color 0.25s ease, background-color 0.25s ease;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
 }
 
-.nav-menu a:hover {
-    color: #79E0D6;
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #ffffff;
+}
+
+.nav-link:focus-visible {
+    outline: 3px solid #79E0D6;
+    outline-offset: 2px;
+}
+
+.nav-link[aria-current="page"] {
+    color: #ffffff;
+    position: relative;
+}
+
+.nav-link[aria-current="page"]::after {
+    content: '';
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: -12px;
+    height: 2px;
+    background: #79E0D6;
+    border-radius: 2px;
 }
 
 .hamburger {
@@ -88,7 +115,7 @@ header {
     height: 3px;
     background: #ffffff;
     margin: 3px 0;
-    transition: 0.3s;
+    transition: transform 200ms ease, opacity 200ms ease;
 }
 
 /* Hero Section */
@@ -828,6 +855,17 @@ header {
     }
 }
 
+@keyframes slide-fade-in {
+    from {
+        transform: translateY(-6px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .scroll-cue {
         animation: none;
@@ -909,30 +947,64 @@ footer p:first-child {
         top: 70px;
         left: 0;
         width: 100%;
-        background: linear-gradient(135deg, #e0e0e0 0%, #c0c0c0 100%);
+        background: rgba(10, 12, 14, 0.95);
+        backdrop-filter: blur(10px);
         flex-direction: column;
-        padding: 2rem 0;
-        border-top: 1px solid #e0e0e0;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        border-radius: 0 0 8px 8px;
+        padding: 8px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        border-radius: 0 0 14px 14px;
+        animation: slide-fade-in 220ms ease both;
     }
 
     .nav-menu li {
-        margin: 0.5rem 0;
-        padding: 0 1.5rem;
+        margin: 0;
+        padding: 0 12px;
     }
 
-    .nav-menu a {
+    .nav-menu li:not(:last-child) .nav-link {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-link {
         display: block;
-        padding: 12px 20px;
-        border-radius: 8px;
-        transition: all 0.3s ease;
+        padding: 14px 14px;
+        border-radius: 12px;
         font-size: 1.1rem;
+        letter-spacing: 0.01em;
+        color: rgba(255, 255, 255, 0.95);
+        min-height: 44px;
     }
 
-    .nav-menu a:hover {
-        background: rgba(96, 96, 96, 0.1);
-        transform: translateX(5px);
+    .nav-link:hover {
+        background: rgba(255, 255, 255, 0.06);
+        color: #ffffff;
+        transform: none;
+    }
+
+    .nav-link:active {
+        background: rgba(255, 255, 255, 0.10);
+    }
+
+    .nav-link[aria-current="page"] {
+        background: rgba(255, 255, 255, 0.06);
+        color: #ffffff;
+        position: relative;
+    }
+
+    .nav-link[aria-current="page"]::before {
+        content: '';
+        position: absolute;
+        left: 6px;
+        top: 10px;
+        bottom: 10px;
+        width: 3px;
+        background: #79E0D6;
+        border-radius: 3px;
+    }
+
+    .nav-link[aria-current="page"]::after {
+        display: none;
     }
 
     .nav-menu.active {
@@ -941,6 +1013,23 @@ footer p:first-child {
 
     .hamburger {
         display: flex;
+    }
+
+    .hamburger:focus-visible {
+        outline: 3px solid #79E0D6;
+        outline-offset: 2px;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
     }
 
     .hero-content h1 {

@@ -3,7 +3,21 @@ const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
 hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
+    
+    // Update aria-expanded
+    const isExpanded = navMenu.classList.contains('active');
+    hamburger.setAttribute('aria-expanded', isExpanded);
+});
+
+// Close menu on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+    }
 });
 
 // Smooth Scrolling for Navigation Links
@@ -17,10 +31,41 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 block: 'start'
             });
             // Close mobile menu after clicking
+            hamburger.classList.remove('active');
             navMenu.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
         }
     });
 });
+
+// Update active navigation link based on scroll position
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
+function updateActiveNavLink() {
+    let current = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= (sectionTop - 200)) {
+            current = section.getAttribute('id');
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.removeAttribute('aria-current');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.setAttribute('aria-current', 'page');
+        }
+    });
+}
+
+// Update active link on scroll
+window.addEventListener('scroll', updateActiveNavLink);
+
+// Update active link on page load
+document.addEventListener('DOMContentLoaded', updateActiveNavLink);
 
 // Gallery Lightbox Functionality
 const galleryGrid = document.querySelector('.gallery-grid');
